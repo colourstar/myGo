@@ -1,0 +1,4 @@
+bin/
+pkg/
+*.swp
+src/example_ptrtest/example_ptrtest
