@@ -2,3 +2,4 @@ bin/
 pkg/
 *.swp
 src/github.com/
+src/example_beeproj/example_beeproj.exe
