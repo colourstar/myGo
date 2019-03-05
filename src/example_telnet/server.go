@@ -48,7 +48,7 @@ func (this *ServerMgr)HandleSession(conn net.Conn,exitCode chan int)  {
 
 	for {
 		str,err := reader.ReadString('\n')
-		if err != nil {
+		if err == nil {
 			str = strings.TrimSpace(str)
 
 			// 处理指令
