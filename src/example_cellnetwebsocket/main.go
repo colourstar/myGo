@@ -28,7 +28,7 @@ func (self *TestEchoAct)String() string{
 // 注册消息
 func init()  {
 	cellnet.RegisterMessageMeta(&cellnet.MessageMeta{
-		Codec : codec:MustGetCodec("json"),
+		Codec : codec.MustGetCodec("json"),
 		Type : reflect.TypeOf((*TestEchoAct)(nil)).Elem(),
 		ID : 1234,
 	})
@@ -48,7 +48,7 @@ func main()  {
 			log.Debugln("server Connected")
 		case *cellnet.SessionClosed:
 			log.Debugln("server Closed")
-		case *TestEchoACK:
+		case *TestEchoAct:
 			log.Debugf("recv: %+v", message)
 
 			ev.Session().Send(&TestEchoAct{
