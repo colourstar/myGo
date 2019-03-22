@@ -75,7 +75,7 @@
 
 <body>
   <header>
-    <h1 class="logo">沈洪飞是我的小可爱</h1>
+    <h1 class="logo">沈洪飞是我的小honey</h1>
     <div class="description">
       Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
     </div>
