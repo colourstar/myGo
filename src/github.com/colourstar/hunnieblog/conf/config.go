@@ -10,6 +10,7 @@ var (
 
 	// DataBase
 	DBHost		string
+	DBPort		string
 	DBUser		string
 	DBPassword	string
 	DBName		string
@@ -22,10 +23,11 @@ func init(){
 	beego.Trace(Version)
 
 	DBHost = beego.AppConfig.String("DBHost")
+	DBPort = beego.AppConfig.String("DBPort")
 	DBUser = beego.AppConfig.String("DBUser")
 	DBPassword = beego.AppConfig.String("DBPassword")
 	DBName = beego.AppConfig.String("DBName")
 	DBType = beego.AppConfig.String("DBType")
 
-	beego.Trace(fmt.Sprintf("host:%s,user:%s,password:%s,dbname:%s,dbtype:%s",DBHost,DBUser,DBPassword,DBName,DBType))
+	beego.Trace(fmt.Sprintf("host:%s:%s,user:%s,password:%s,dbname:%s,dbtype:%s",DBHost,DBPort,DBUser,DBPassword,DBName,DBType))
 }
