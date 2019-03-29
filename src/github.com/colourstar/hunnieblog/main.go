@@ -20,7 +20,7 @@ func init(){
 	flag.Parse()
 
 	if (*bFlags_help){
-		beego.Trace("-db	create database")
+		beego.Trace("-create	create database")
 		beego.Trace("-clear	drop all database")
 		os.Exit(0)
 		return

@@ -19,12 +19,6 @@ var (
 
 func InitDB(){
 	orm.DefaultTimeLoc = time.UTC
-
-	// // 连接DB
-	// pkSqlDataBase = connectDB(conf.DBUser,conf.DBPassword,conf.DBHost,conf.DBPort,conf.DBName)
-	// if ( pkSqlDataBase == nil ) {
-	// 	beego.Trace("[db] : connectDB error")
-	// }
 }
 
 // 创建table表
@@ -35,7 +29,7 @@ func CreateDB(){
 
 	switch conf.DBType {
 	case "mysql":
-		strCreateDBSql := fmt.Sprintf("CREATE DATABASE if not exist `%s` CHARSET utf8 COLLATE utf8_general_ci", conf.DBName)
+		strCreateDBSql = fmt.Sprintf("CREATE DATABASE if not exists `%s` CHARSET utf8 COLLATE utf8_general_ci", conf.DBName)
 		beego.Trace("[db] : sql is :", strCreateDBSql)
 	default:
 		beego.Critical("[db] : Error,not support :" , conf.DBType)
