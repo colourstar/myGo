@@ -30,7 +30,6 @@ func CreateDB(){
 	switch conf.DBType {
 	case "mysql":
 		strCreateDBSql = fmt.Sprintf("CREATE DATABASE if not exists `%s` CHARSET utf8 COLLATE utf8_general_ci", conf.DBName)
-		beego.Trace("[db] : sql is :", strCreateDBSql)
 	default:
 		beego.Critical("[db] : Error,not support :" , conf.DBType)
 		return
@@ -39,6 +38,7 @@ func CreateDB(){
 	pDBInst := connectDB()
 	defer pDBInst.Close()
 
+	beego.Trace("[db] :", strCreateDBSql)
 	_,err := pDBInst.Exec(strCreateDBSql)
 
 	if (err != nil){
