@@ -6,9 +6,8 @@ import(
 
 type User struct {
 	Id            	int64
-	iId				string
-	iLoginCount		int
-	strUsername		string 		`orm:"unique;size(32)" form:"Username"  valid:"Required;MaxSize(20);MinSize(6)"`	
+	Username		string 		`orm:"size(32)" form:"Username" valid:"Required;MaxSize(20);MinSize(6)"`
+	Password      	string    	`orm:"size(32)" form:"Password" valid:"Required;MaxSize(20);MinSize(6)"`
 }
 
 func (this *User) TableName() string{
@@ -40,7 +39,6 @@ func (this *User) Delete() error {
 	if _, err := orm.NewOrm().Delete(this); err != nil{
 		return err
 	}
-
 	return nil
 }
 
