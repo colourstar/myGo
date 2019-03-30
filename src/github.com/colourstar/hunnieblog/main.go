@@ -16,6 +16,7 @@ func init(){
 	// help output
 	bFlags_help := flag.Bool("h", false, "help")
 	bFlags_createdb := flag.Bool("create", false, "create database")
+	bFlags_dropdb := flag.Bool("clear",false,"drop database")
 	// flag parse
 	flag.Parse()
 
@@ -31,6 +32,11 @@ func init(){
 		models.CreateDB()
 		os.Exit(0)
 		return
+	}else if (*bFlags_dropdb){
+		conf.Run()
+		models.DropDB()
+		os.Exit(0)
+		return
 	}
 
 	// conf run
@@ -42,7 +48,6 @@ func init(){
 	// routers run
 	beego.Trace("[main] : routers Run")
 	routers.Run()
-	
 }
 
 func main(){
